@@ -1,0 +1,933 @@
+#hero {
+  position: relative;
+  border-bottom: 2em solid whitesmoke;
+}
+#hero h1 {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	z-index: 9;
+	font-size: 2em;
+	width: 8em;
+	text-align: center;
+	line-height: 1em;
+	text-transform: capitalize;
+	font-family: "Libre Baskerville";
+	text-shadow: 0em 0em 1em black;
+	color: white;
+}
+#slider-left,
+#slider-right {
+  border: 0;
+  cursor: pointer;
+  z-index: 998;
+  background: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+#slider-left .material-symbols-outlined,
+#slider-right .material-symbols-outlined {
+  color: white;
+  font-size: 3.5em;
+  line-height: 1.5em;
+}
+#slider-left:hover,
+#slider-right:hover {
+  opacity: 1;
+}
+#slider-left {
+  color: white !important;
+}
+
+#slider-right {
+  color: white;
+}
+#hero-slider {
+  position: relative;
+  height: 34em;
+  background: black;
+  display: block;
+  margin: 0em auto 0em auto;
+  width: 100%;
+  /*! box-shadow: 0em 0em 1em rgba(0,0,0,0.5); */
+}
+.hero-slide {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  opacity: 0;
+  transition: 1s;
+  background-position: center;
+  overflow: hidden;
+  display: block;
+  transform: translateX(-50%);
+}
+.hero-slide.active {
+  opacity: 0.9;
+}
+
+.hero-slide img {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0.9;
+}
+.hero-slider-content {
+  z-index: 2;
+  position: absolute;
+  left: 2em;
+  padding: 1em;
+  border-radius: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 40%;
+}
+.hero-slider-content h2 {
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1em;
+  text-shadow: 0em 0em 0.25em black;
+  font-family: "Libre Baskerville";
+}
+.hero-slider-content h3 {
+  color: white;
+  font-size: 3em;
+  font-weight: normal;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: 0em 0em 0.25em black;
+}
+@media (max-width: 950px) {
+  
+  .hero-slide.active img{
+  opacity: 0.6;
+}
+  .hero-slider-content h2,
+    .hero-slider-content h3{
+    font-size: 2em;
+  }
+  .hero-slider-content {
+    bottom: 1em;
+    width: 100%;
+    left: 0;
+    top: 6em;
+    transform: none;
+  }
+}
+.hero-slider-content ul {
+  display: table;
+  width: 100%;
+  margin-top: 1em;
+}
+.hero-slider-content li {
+  display: table-cell;
+  width: 50%;
+  text-align: left;
+  color: white;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+.hero-slider-content ul li span {
+  display: block;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.hero-slider-content button {
+  display: inline-block;
+  border-radius: 5em;
+  background-color: #ffc700;
+  padding: 0.25em 0.5em;
+  text-align: right;
+  margin-top: 0.5em;
+  max-width: 13em;
+  font-size: 1em;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0em 0em 1em #0000007a;
+}
+.hero-slider-content button span {
+  display: inline-block;
+  vertical-align: middle;
+  color: #3d6929;
+  text-transform: capitalize;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-left: 0.5em;
+  line-height: 1.75em;
+}
+.hero-slider-content button .material-symbols-outlined {
+  color: gold;
+  background-color: #4b7e33;
+  border-radius: 5em;
+  padding: 0.075em 0.05em 0.075em 0.15em;
+  font-size: 2em;
+  margin-left: 0.25em;
+  width: 1.2em;
+  vertical-align: middle;
+  line-height: 1em;
+}
+#slider-nav {
+  width: 100%;
+  text-align: center;
+  background-size: contain;
+  background-image: url("../images/border-1.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  position: absolute;
+  bottom: 0;
+}
+.slider-button {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0.25em;
+  opacity: 0.25;
+  transition: 0.3s;
+  border: 0;
+  cursor: pointer;
+}
+.slider-button.active,
+.slider-button:hover {
+  opacity: 1;
+}
+#scroll-nav {
+  width: 95%;
+  max-width: 60em;
+  margin: 2em auto;
+  display: block;
+  border: 1px solid black;
+  position: relative;
+  height: 18em;
+  overflow: hidden;
+}
+@media (max-width: 500px) {
+  #hero {
+  }
+  #hero-top ul li {
+    padding: 1em;
+  }
+}
+
+#suggested-content {
+  width: 100%;
+  border: 1px solid gainsboro;
+  height: 20em;
+  overflow-x: scroll;
+  white-space: nowrap;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+.suggested-content-box {
+  width: 20em;
+  height: 100%;
+  display: inline-block;
+}
+#nav-scoller-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 4em;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 0;
+}
+#nav-scoller-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4em;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 0;
+  display: none;
+}
+#nav-scoller-left.active {
+  display: block;
+}
+@media (max-width: 730px) {
+  .hero-slide img {
+    width: auto;
+    height: 100%;
+  }
+  #hero-slider {
+    height: 28em;
+    width: 100%;
+  }
+}
+
+/* suggested activites */
+
+#product-spotlight h2 {
+  font-size: 2.5em;
+  text-transform: capitalize;
+  padding: 1em;
+  font-family: "Libre Baskerville";
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: #ad330e;
+  font-weight: normal;
+  background: linear-gradient(to bottom, #dec0a1 0%, #fff0 100%);
+  line-height: 2em;
+}
+#product-spotlight {
+  width: 100%;
+  position: relative;
+  font-size: 1em;
+  background-image: url("../images/tapas2.png");
+  background-size: 40em;
+  background-position: center;
+  border-bottom: 2em solid whitesmoke;
+}
+
+/*==================*/
+.product-nav {
+  background-image: url("../images/tapasgreen.png");
+  background-size: 42em;
+	background-position: center;
+	font-size: 1em;
+  text-align: center;
+  background-color: #4b7e33;
+  border-bottom: 2em solid whitesmoke;
+  padding-bottom: 4em;
+}
+.product-nav header {
+  font-size: 2em;
+  text-transform: capitalize;
+  padding: 1.5em 0em;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: white;
+  font-weight: normal;
+  background: -moz-linear-gradient(top, #4b7d32 0%, rgba(125,185,232,0) 100%);
+  background: -webkit-linear-gradient(top, #4b7d32 0%,rgba(125,185,232,0) 100%);
+  background: linear-gradient(to bottom, #4b7d32 0%,rgba(125,185,232,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86aa5c', endColorstr='#007db9e8',GradientType=0 );
+}
+.product-nav h2{
+	font-size: 1.25em;
+	font-family: "Libre Baskerville";
+	font-weight: lighter;
+	color: white;
+}
+.product-nav h3{
+	font-weight: lighter;
+	font-size: 1em;
+	color: white;
+}
+.products{
+  width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+  position: relative;
+}
+@media(max-width:1250px){
+  .products{
+    width: 90%;
+  }
+}
+.products{
+  height: auto;
+  width: 100%;
+  text-align: center;
+}
+.product{
+  text-align: center;
+  display: inline-block;
+  text-align: center;
+  width: auto;
+  transition: 0.5s;
+  background-color: white;
+  padding: 0.5em;
+  position: relative;
+  margin: 0.25em;
+  border-radius: 5em;
+  box-shadow: 0em 0.55em 0.5em -0.5em #00000085;
+	transform: 0.3s;
+	text-align: center;
+}
+.p-img {
+  height: 4em;
+  width: 4em;
+  border-radius: 4em;
+  background-image: url("../images/kauai_icons.png");
+  font-size: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: cadetblue;
+  background-size: cover;
+	transition: 0.3s;
+}
+.product:hover{
+	background-color: gold;
+}
+.product:hover .p-img{
+	background-color: #00abe3;
+}
+#icon-12 .p-img{
+	background-position: 4em 4em;
+}
+#icon-11 .p-img{
+	background-position: 8em 4em;
+}
+#icon-10 .p-img{
+	background-position: 12em 4em;
+}
+#icon-9 .p-img{
+	background-position: 16em 4em;
+}
+#icon-8 .p-img{
+	background-position: 20em 4em;
+}
+#icon-7 .p-img{
+	background-position: 24em 4em;
+}
+#icon-6 .p-img{
+	background-position: 28em 4em;
+}
+#icon-5 .p-img{
+	background-position: 32em 4em;
+}
+#icon-4 .p-img{
+	background-position: 36em 4em;
+}
+#icon-3 .p-img{
+	background-position: 40em 4em;
+}
+#icon-2 .p-img{
+	background-position: 44em 4em;
+}
+#icon-1 .p-img{
+	background-position: 48em 4em;
+}
+.product a {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  width: auto;
+}
+.product span {
+  font-size: 1.5em;
+  line-height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  width: 8em;
+  text-transform: capitalize;
+  color: #3a6824;
+}
+#more-tours {
+  margin: 0 auto;
+  display: inline-block;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  background-color: gold;
+  border: 0;
+  box-shadow: 0em 0.55em 0.5em -0.5em #00000085;
+  color: #4b7e33;
+	transition: 0.3s;
+}
+#more-tours:hover{
+	background-color: yellow;
+}
+@media(max-width:450px){
+	.product-nav header {
+		font-size: 1.75em;
+		text-transform: capitalize;
+		padding: 0.75em;
+	}
+}
+
+.activity-divider {
+  font-size: 2em;
+  font-family: "Libre Baskerville";
+  font-weight: lighter;
+  color: white;
+  text-transform: capitalize;
+  margin-bottom: 0.5em;
+  display: block;
+  margin-top: 1em;
+  text-shadow: 0em 0em 2em #00000085, 0em 0em 1em #82b567;
+}
+/*============*/
+.featured-content {
+  width: 100%;
+	position: relative;
+	font-size: 1em;
+	background-image: url("../images/tapas2.png");
+	background-size: contain;
+	background-position: center;
+}
+.featured-content h4 {
+  font-size: 2.5em;
+  text-transform: capitalize;
+  padding: 1em;
+  font-family: "Libre Baskerville";
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: #ad330e;
+  font-weight: normal;
+  background: linear-gradient(to bottom, #dec0a1 0%, #fff0 100%);
+  line-height: 2em;
+}
+#product-list {
+	width: 100%;
+  margin: 0 auto;
+	text-align: center;
+	padding-bottom: 4em;
+	padding-top: 1em;
+}
+.featured-product {
+  display: inline-block;
+  width: 33.3%;
+  vertical-align: top;
+  margin-left: -2px;
+  margin-right: -2px;
+  overflow: hidden;
+  padding: 1em;
+  max-width: 28em;
+}
+.featured-product .section{
+	margin-right: 0em;
+	box-shadow: 0em 0.5em 1em -1em black;
+	border: 0.5em solid white;
+	overflow: hidden;
+}
+.section img {
+	position: absolute;
+	top: 50%;
+  height: 100%;
+	z-index: 0;
+	left:75%;
+	transform: translate(-75%,-50%);
+	-webkit-transform: translate(-75%,-50%);/* WebKit */
+	-moz-transform: translate(-75%,-50%);/* Mozilla */
+	-o-transform: translate(-75%,-50%);/* Opera */
+	-ms-transform: translate(-75%,-50%); /* Internet Explorer */
+}
+
+.featured-product .section{
+	height: 26em;
+	position: relative;
+	background: black;
+}
+.featured-product .section .article {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 5em;
+  padding-left: 1em;
+	padding-right: 1em;
+  padding-bottom: 1em;
+  background: linear-gradient(to bottom, rgba(240,249,255,0) 0%,rgb(46, 45, 56) 100%);
+}
+.featured-product .section h3 {
+  font-size: 2em;
+  color: white;
+  text-transform: capitalize;
+  text-align: left;
+  margin-bottom: 1em;
+  line-height: 1em;
+}
+.featured-product .section p {
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.33em;
+}
+.featured-product .section p{
+	color: white;
+	text-align: left;
+}
+.featured-product .price {
+  text-transform: capitalize;
+  display: inline-block;
+  width: 50%;
+  margin-right: -3px;
+  vertical-align: middle;
+  text-align: left;
+}
+.featured-product .price span {
+  font-size: 1em;
+  color: white;
+}
+.featured-product b {
+  color: white;
+  font-size: 1.5em;
+  display: block;
+}
+.featured-product span.strike {
+  display: block;
+  text-decoration: line-through;
+  font-size: 1.5em;
+  opacity: 0.5;
+  margin-bottom: -0.25em;
+}
+.featured-product .section a {
+  text-transform: capitalize;
+  display: inline-block;
+	width: 50%;
+  margin-left: -3px;
+  text-align: center;
+  color: white;
+  border: 2px solid white;
+  padding: 0.5em 0em;
+  border-radius: 2em;
+  vertical-align: middle;
+  transition: 0.3s;
+  font-size: 1.25em;
+}
+.featured-product .section a:hover{
+  background-color: gold;
+  color: darkblue;
+}
+.discount-badge {
+	position: relative;
+  margin-left: 1em;
+  margin-top: 1em;
+  color: #2c2c38;
+  font-size: 1em;
+	text-align: left;
+  line-height: 1.25em;
+	z-index: 2;
+}
+.discount-badge:before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 3.75em;
+	height: 3.75em;
+	background-color: white;
+	padding: 1em;
+	border-radius: 3.75em;
+	z-index: -1;
+}
+#p1 .discount-badge::before {
+  left: -0.75em;
+  top: -0.5em;
+}
+#p2 .discount-badge::before {
+  left: -0.5em;
+  top: -0.4em;
+}
+#p3 .discount-badge:before{
+	left: -0.5em;
+  top: -0.4em;
+}
+.discount-badge span {
+  font-size: 1.5em;
+}
+.learn-more {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 1.1em;
+  border-radius: 3em;
+  padding: 1em 0.88em;
+  text-transform: capitalize;
+  border: 0;
+  transition: 0.3s;
+  cursor: pointer;
+  line-height: 1.2em;
+	z-index: 9;
+}
+.learn-more:hover {
+	background-color: gold;
+	color: #113d67;
+}
+.p-anchor {
+	font-size: 1.2em;
+	text-transform: capitalize;
+	color: #4b7e33;
+	margin-top: 1.25em;
+	display: inline-block;
+	background: white;
+	padding: 0.5em;
+	border-radius: 2em;
+	box-shadow: 0em 0.55em 0.5em -0.5em #00000085;
+}
+@media(max-width:1000px){
+	.featured-content{
+		text-align: center;
+	}
+	.featured-product{
+    width: 50%;
+	}
+	.discount-badge{
+		display: inline-block;
+		float: left;
+	}
+	#p1 .section {
+		background-size: 30em;
+	}
+	#p2 .section {
+    background-size: 30em;
+	}
+	#p3 .section {
+    background-size: 30em;
+	}
+}
+@media(max-width:700px){
+	#product-list{
+    width: 100%;
+	}
+	#product-list  {
+		padding: 0.5em;
+	}
+}
+@media(max-width:600px){
+	.featured-product .section .article {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+	}
+	.featured-product {
+	  max-width: 28em;
+		width: 90%;
+	}
+}
+/*==============================*/
+.detail-wrapper{
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.75);
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	height: 0;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	z-index: 999;
+	transition: 0.5s;
+	font-size: 1em;
+}
+.detail-wrapper.active{
+	padding-top: 4%;
+	padding-bottom: 4%;
+	height:100%;
+}
+.detail {
+  width: 900px;
+  background-color: white;
+  margin: 0 auto;
+}
+.detail header {
+ width: 100%;
+  padding: 1em;
+  text-align: left;
+  height: 15em;
+	position: relative;
+	background-size: cover;
+}
+#detail-1 header{
+	background-position: 0% 33%;
+	background-image: url("../images/kalamaku-Luau-Show.jpg");
+}
+#detail-2 header{
+	background-position: center;
+	background-image: url("../images/holo-sunset-banner.jpg");
+}
+#detail-3 header{
+	background-position: 0% 25%;
+	background-image: url("../images/sunshine-helicopters-kauai.jpg");
+}
+.detail header h2 {
+  font-size: 2em;
+  text-transform: capitalize;
+  color: white;
+  position: absolute;
+  bottom: 0;
+	left: 0;
+  box-shadow: inset 0em -1em 3em -1em #15213f;
+  width: 100%;
+  padding: 0.5em;
+}
+.detail header button {
+  position: absolute;
+  right: 0.55em;
+  top: 0.75em;
+  font-size: 1em;
+  border: 0;
+  background: 0;
+}
+.detail header .material-icons {
+	font-size: 2em;
+  border-radius: 1em;
+  padding: 0.15em;
+  color: white;
+  border: 0.1em solid;
+	cursor: pointer;
+}
+.detail .section .article p {
+  padding: 1.5em;
+  line-height: 2em;
+  font-size: 1em;
+}
+.detail ul {
+  width: 100%;
+  display: table;
+}
+.detail ul li {
+  width: 33.3%;
+  display: table-cell;
+  text-align: center;
+	font-size: 1.5em;
+}
+.detail .article span {
+  display: block;
+  text-transform: capitalize;
+  font-size: 0.75em;
+}
+.dtl-price s{
+	text-decoration: line-through;
+}
+.detail .article a {
+  font-size: 1.5em;
+  margin: 1em auto;
+  display: inline-block;
+  text-transform: capitalize;
+  border: 0.1em solid teal;
+  border-radius: 2em;
+  padding: 0.5em;
+  color: teal;
+}
+@media(max-width:950px){
+	.detail {
+		width: 100%;
+	}
+	.detail-wrapper{
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+}
+/*============*/
+.article-section{
+	width: 100%;
+	position: relative;
+	font-size: 1em;
+	background-image: url("../images/kauai.jpg");
+	background-size: cover;
+	background-position: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+.article-section header{
+	width: 100%;
+	padding: 1em;
+	font-size: 1.5em;
+ 	text-align: center;
+ 	font-weight: lighter;
+	line-height: 1em;
+	text-transform: uppercase;
+	color: darkgreen;
+	font-family: "Libre Baskerville";
+}
+.article-first,.article-second{
+	width: 100%;
+	padding: 1em;
+}
+.article-first article, .article-second article {
+  width: 50%;
+  display: inline-block;
+  background-color: beige;
+  padding: 4em;
+  box-shadow: 0em 0.25em 0.5em #0000005e;
+	background-size: cover;
+}
+.article-first p,.article-second p{
+	font-size: 1.1em;
+	line-height: 2.5em;
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+.article-first p span{
+	display: inline-block;
+	float: left;
+	font-size: 2em;
+	color: darkgreen;
+	font-family: "Baskerville Libre"
+}
+.article-first{
+	text-align: left;
+}
+.article-second{
+	text-align: right;
+}
+.article-second ul{
+	width: 100%;
+	text-align: center;
+}
+.article-second li {
+  display: inline-block;
+  border: 0.2em solid green;
+  margin: 0.5em;
+  border-radius: 2em;
+  padding: 0.5em;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.article-second li:hover{
+	background-color: gold;
+}
+.article-second a{
+  font-size: 1.25em;
+  color: #2d961f;
+	vertical-align: middle;
+	text-transform: capitalize;
+}
+.article-second img {
+	vertical-align: middle;
+  width: 2.5em;
+}
+@media(max-width:1000px){
+	.article-first article, .article-second article {
+		width: 100%;
+		padding: 2em;
+		margin: 4em 0em;
+		text-align: justify;
+	}
+	.article-first, .article-second {
+		width: 100%;
+		padding: 2em 0em;
+	}
+}
+.article-section::before{
+	content: '';
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+	background-image: url("../images/kauai.jpg");
+	background-size: cover;
+	background-position: center;
+	opacity: 0;
+	transition: 0.3s;
+}
+.checkpoint.active .article-section::before{
+	opacity: 1;
+}
+
+/* guarantee */
