@@ -16,6 +16,18 @@
 	text-shadow: 0em 0em 1em black;
 	color: white;
 }
+@media(max-width:1000px){
+  #hero h1{
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+    padding: 0.5em;
+    color: #43712e;
+    text-shadow: none;
+    background: gainsboro;
+  }
+}
 #slider-left,
 #slider-right {
   border: 0;
