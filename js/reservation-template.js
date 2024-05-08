@@ -770,6 +770,11 @@ let showSinglePrices = (page, dataPrices, category) => {
   });
 };
 
+
+//todo - fix duplicate prices being created
+
+
+
 let addPriceMessage = (page) => {
   let priceMessage = document.createElement("div");
   priceMessage.setAttribute("id", "price-message");
@@ -1103,7 +1108,14 @@ let showPackageGroupings = (page) => {
   let $prices = cartData.Prices;
   $groups = [];
 
-  Array.prototype.forEach.call($prices, function (item, index) {
+  $sortedPrices = $prices.sort((a, b) => {
+            var valueA = parseInt(a.DisplayOrder);
+            var valueB = parseInt(b.DisplayOrder);
+            return valueA - valueB;
+  });
+
+
+  Array.prototype.forEach.call($sortedPrices, function (item, index) {
     if (
       item.Grouping !== null &&
       item.Category !== "Not Set" &&
@@ -1375,19 +1387,24 @@ let displayPage2 = ($back) => {
 
   //   // Get all the DIV elements
   let $priceContainer = document.getElementsByClassName("price-container");
+
   let $unorderedPrices = new Array();
 
   for (let i = 0; i < $priceContainer.length; i++) {
     $unorderedPrices.push($priceContainer[i]);
   }
-
+	
   $unorderedPrices.sort((a, b) => {
     var valueA = parseInt(a.getAttribute("data-order"));
     var valueB = parseInt(b.getAttribute("data-order"));
     return valueA - valueB;
   });
 
-  $unorderedPrices.forEach((item) => {
+  console.log($unorderedPrices);
+  $organizedPrices = new Set($unorderedPrices);
+  console.log($organizedPrices);
+
+  $organizedPrices.forEach((item) => {
     document.getElementById("page2").appendChild(item);
   });
 
@@ -1430,6 +1447,40 @@ let displayPage2 = ($back) => {
     document.getElementById("next-2").style.display = "none";
     console.log("no prices today");
   }
+
+
+//todo: move this function into price creation
+
+if(window.location.pathname == "/kauai/luau-kalamaku.htm"){
+
+let domPriceElement = document.getElementsByClassName("price-container");
+
+let idMap = {};
+
+for (let i = 0; i < domPriceElement.length; i++) {
+
+    let priceID = domPriceElement[i].getAttribute("ID");
+
+    if( idMap.hasOwnProperty(priceID)){
+
+        console.log("duplicate " + domPriceElement[i] + priceID);
+
+        domPriceElement[i].disabled = true;
+        domPriceElement[i].style.display = 'none';
+        domPriceElement[i].remove();
+
+    }else{
+
+        console.log("unique el found");
+        idMap[priceID] = true;
+
+    };
+
+};
+
+};
+
+
 };
 
 //====================================================================
@@ -1438,7 +1489,7 @@ let displayPage2 = ($back) => {
 let displayPage3 = () => {
   hideReservationPages("reservation-page", "page3");
 
-  showTitle("Lastly, Partipant Details");
+  showTitle("Lastly, Participant Details");
 
   document
     .getElementById("reservation-controls")
